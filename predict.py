@@ -30,7 +30,7 @@ Image = np.invert(Image.open(image_path).resize((224, 224)))
 categories = np.load(base_path +'/category.npy')
 
 # 추론 하기 
-predictions = model.predict(image[np.newaxis, :, :, :])[0]
+predictions = model.predict(image[np.newaxis, :, :, :], verbose=0)[0]
 indexes = np.argsort(predictions).tolist()
 indexes.reverse()
 indexes = indexes[:5]
